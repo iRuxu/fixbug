@@ -1,0 +1,113 @@
+//@import url('base.less');
+@import 'base.less';
+
+@url:'../image/';
+
+*{padding:0;margin:0;}
+body,html{
+	.full;
+	overflow:hidden;
+}
+
+
+//1.设置图片为背景fix 用纯色填充底部 
+//当可以选择css3时，则使用"center top /auto 100%"来控制图片大小
+/*.outer{
+	.pr;
+	//.full;
+	.size(90%);.auto(x);
+	overflow-y:auto;
+	overflow-x:hidden;
+
+	background:url('http://ww4.sinaimg.cn/large/bcc700eejw1ets2tszc92j20p018ggt9.jpg') no-repeat 0 0;
+}
+
+.img{
+	.db;
+	.pa;.lt(0,0);
+	.full;
+}
+	//此时inner即为内容区本身（窄）
+.inner{
+	.pr;
+	background-color:#f00;
+	.w(800px);.h(2000px);.auto(x);
+}*/
+
+//2.当必须为图片时
+.outer{
+	.pr;
+	.full;
+	.size(90%);.auto(x);
+}
+
+.img{
+	.db;
+	//.pa;.lt(0,0);
+	.full;
+
+		//3.推翻后回到可能还是inner身后的层img为pa导致，试着将图片去掉定位属性
+	//.pr;
+}
+	//此时inner不能直接为本身，如为本身确实不影响滚动，但是图片位置是固定的，当滚动outer产生的滚动条时，inner长度比Img长，则会无法显示图片
+	//故此时inner应为一个和img等同的尺寸，滚动inner中的内容，故去掉outer的overflow改到inner上，真正的内容应为inner的子元素。
+.inner{
+	.pr;.z(200);
+	.full;
+	overflow-y:auto;
+	overflow-x:hidden;
+	background-color:rgba(255,255,255,0.65);
+
+	//并设置inner为绝对定位
+	//.pa;.lt(0,0); //依旧不行，说明不是pr后的层级比pa低的问题
+}
+.content{
+	//此时逻辑并没有问题，拉动滚动条仍旧可以滚动，但是鼠标在非内容区域滚动时却不可以滚动
+	background-color:#f00;
+	.w(800px);.h(2000px);.auto(x);
+}
+
+		//猜测：必须在内容区域才可滚动？
+		//解决方案一：删除img元素，按第一种情况把图片作为背景得到解决，此时在边上滚（非内容区）照样可以滚动
+
+		//猜测：是否img(pa)的优先级高于inner(pr)? 
+					//a.试着将inner添加z-index 无效
+					//b.试着将inner也改为pa 无效
+
+
+		//猜测A.里面的东西必须处于内容区，可以滚时
+			//尝试将content设置为100%宽，让里面的元素全部以居中排列
+			//.content{.full(x);}
+
+.a{.size(100px,400px);.auto(x);background-color:#0cf;}
+
+	//猜测，可通过设置content的满宽，让其空白区可滚动。
+	//按此原理，设置简易模型box测试，结果不符合预期，简易模型下，尽管两侧空白仍旧可以滚动。
+	//推翻
+
+
+	//4.回到简易模型，猜测：是否与定位有关？
+	//
+.box{
+	.size(600px,600px);
+	overflow-y:auto;
+	overflow-x:hidden;
+	background-color:#000;
+	.pr;
+
+	//.pa; 否定
+
+	.box2{
+		.size(200px,800px);
+		.auto(x);
+		background-color:#0f0;
+	}
+}
+
+.prev{
+	.pa;.size(700px,700px);background-color:#93f;
+}
+
+.wrap{
+	.pr;.size(700px,700px);
+}
