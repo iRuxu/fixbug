@@ -1,0 +1,140 @@
+@import 'base.less';
+
+.skin-default(){
+	background-color:@basecolor;
+	color:#fff;
+}
+
+
+*{padding:0;margin:0;list-style:none;}
+
+body,html{
+	.full;
+	overflow:hidden;
+	font-family:'Trebuchet MS',"\5FAE\8F6F\96C5\9ED1";
+}
+
+h1{
+	.full(x);.x;
+	background-color:#f2f2f2;
+	.normal;
+	.fzlh(24px,60px);
+	color:#555;
+	border-bottom:1px solid #ccc;
+}
+
+.header{
+	color:#444;
+	background-color:#f2f2f2;
+	border-radius:0 0 3px 3px;
+	border:1px solid #ccc;
+	border-top:0;
+	padding:5px 10px;
+	.pr;top:-1px;
+	.w(900px);.auto(x);
+	.clearfix;
+	.fz(14px,24px);
+	h2{.normal;.fl;.fz(18px,24px);margin-right:20px;}
+	ul{
+		.fl;
+		li{
+			.fl;
+			.db;
+			.w(80px);
+			.x;
+			.pointer;
+			margin:0 5px;
+			background-color:#eee;
+			&.on{
+				.skin-default;
+				&:hover{
+					background-color:@basecolor;
+				}
+			}
+			&:hover{
+				background-color:#ddd;
+			}
+		}
+	}
+	.next{
+		.pa;.rt(10px,10px);
+		.skin-default;
+		.size(60px);.lh(60px);.db;
+		border-radius:40px;
+		text-transform: uppercase;
+		.x;
+		.pointer;
+		&:hover{
+			background-color:lighten(@basecolor, 10%)
+		}
+		//border:1px solid darken(@basecolor,10%)
+		
+	}
+}
+
+.footer{
+	.pa;.lb(0,0);
+	background-color:#f2f2f2;.x;
+	.full(x);.fzlh(12px,40px);
+	border-top:1px solid #ccc;
+	.color(#999,#777,#555);
+	a{text-decoration:none;}
+}
+
+.main{
+	max-width:1200px;
+	.auto(x);
+}
+
+.step{
+	.none;
+}
+
+.text{
+		margin:20px 0;
+		background-color:#f2f2f2;
+		border-radius:2px;
+		color:#444;
+		padding:20px;
+		.fz(12px,1.8);
+	}
+
+.view{
+	border:1px solid #ccc;
+	.size(100%,400px);
+}
+
+.code{
+	padding:10px;.pr;
+	margin-top:30px;
+	border:1px dashed #ccc;
+	background-color:#f7f7f7;
+	&:before{
+		.pa;.lt(-1px,-28px);
+		.db;
+		content:'CODE';
+		.skin-default;
+		.fzlh(12px,28px);
+		padding:0 5px;
+	}
+	.tips{
+		cursor:help;
+		.color(#888);.pa;
+		.lt(50px,-28px);
+		.fz(12px,28px);
+	}
+}
+
+textarea{
+	.size(100%,100px);
+	font-family:Consolas;
+	background: none;
+	border:none;
+}
+
+.i{border-bottom:1px solid #555;}
+.b{.bold;.color(#c00);}
+
+#step li,#next{
+	user-select:none;
+}

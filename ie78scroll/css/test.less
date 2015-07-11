@@ -1,140 +1,118 @@
-//@import url('base.less');
 @import 'base.less';
 
-@url:'../image/';
 
-*{padding:0;margin:0;}
-
-body,html{
+.outer{
 	.full;
-	overflow:hidden;
-}
-
-.outer-1{
 	.pr;
-	.full;
-	.size(90%);.auto(x);
 }
 
-.img-1{
-	.db;
+.block{
+	.size(400px,200px);
+	.lh(200px);
+	border:1px solid @basecolor;
+	.auto(x);.x;
+	margin-bottom:20px;
+	.tb(255,255,255,0.4);
+}
+
+.img{
 	.pa;.lt(0,0);
-	.full;
-
-		//3.推翻后回到可能还是inner身后的层img为pa导致，试着将图片去掉定位属性
-	//.pr;
-}
-	//此时inner不能直接为本身，如为本身确实不影响滚动，但是图片位置是固定的，当滚动outer产生的滚动条时，inner长度比Img长，则会无法显示图片
-	//故此时inner应为一个和img等同的尺寸，滚动inner中的内容，故去掉outer的overflow改到inner上，真正的内容应为inner的子元素。
-.inner-1{
-	.pr;
-	//.z(200);
-	.full;
-	overflow-y:auto;
-	overflow-x:hidden;
-	//background-color:#000;
-
-	//并设置inner为绝对定位
-	//.pa;.lt(0,0); //依旧不行，说明不是pr后的层级比pa低的问题
-}
-.content-1{
-	//此时逻辑并没有问题，拉动滚动条仍旧可以滚动，但是鼠标在非内容区域滚动时却不可以滚动
-	background-color:#f00;
-	.w(800px);.h(2000px);.auto(x);
+	.full;.db;
 }
 
-		//猜测：必须在内容区域才可滚动？
-		//解决方案一：删除img元素，按第一种情况把图片作为背景得到解决，此时在边上滚（非内容区）照样可以滚动
-
-		//猜测：是否img(pa)的优先级高于inner(pr)? 
-					//a.试着将inner添加z-index 无效
-					//b.试着将inner也改为pa 无效
-
-
-		//猜测A.里面的东西必须处于内容区，可以滚时
-			//尝试将content设置为100%宽，让里面的元素全部以居中排列
-			//.content-1{.full(x);}
-
-.d{
-	.size(100px,1400px);.auto(x);background-color:#0cf;
-}
-
-	//猜测，可通过设置content的满宽，让其空白区可滚动。
-	//按此原理，设置简易模型box测试，结果不符合预期，简易模型下，尽管两侧空白仍旧可以滚动。
-	//推翻
-
-
-.wrap{
-	.pr;.size(1000px,1000px);
+.content{
+	.size(400px,auto);
 	.auto(x);
-	background-color:#f39;
-}
-.prev{
-	.db;
-	.pa;.lt(0,0);
-	.size(700px,700px);
-	background-color:#93f;		//未给位置
-	.full;
 }
 
-.box{
-	.size(600px,600px);
-	overflow-y:auto;
-	overflow-x:hidden;
-	//background-color:#000;
-	.pr;
-	.auto(x);
+.step-1{//.db; 
 
-	.full;
+	.outer{
+		background:url('http://ww4.sinaimg.cn/large/bcc700eegw1eikbevbsu1j21hc0ip4cf.jpg') no-repeat 0 0;
+		overflow-x:hidden;
+		overflow-y:auto;
+		background-size:100% 100%;
+	} 
 }
 
-.box2{
-	.size(200px,1800px);
-	.auto(x);
-	background-color:#0f0;
+.step-2{//.db;
 
+	.outer{
+		overflow-x:hidden;
+		overflow-y:auto;
+	}
+
+	.block{
+		.pr;
+	}
 }
 
+.step-3{//.db;
 
-.a{
-	.pr;.size(1000px,800px);
-	.auto(x);
-	//background-color:#f39;
-	overflow-y:auto;
-	overflow-x:hidden;
-}
-.b-1{
-	.db;
-	.pa;.lt(0,0);
-	.size(700px,700px);
-	background-color:#93f;		//未给位置
-	.full;
-
-	//.z(-1);
+	.inner{
+		.full;
+		.pr;
+		overflow-x:hidden;
+		overflow-y:auto;
+	}
 }
 
-.b-2{
-	.size(600px,600px);
-	overflow-y:auto;
-	overflow-x:hidden;
-	//background-color:#000;
-	.pr;
-	.auto(x);
+.step-4{//.db;
 
-	.full;
-	//background-color:transparent; //不行
-	//background-color:#000;	//OK
-	//background:url('../image/blank.gif') no-repeat 0 0;	//设置1px透明背景图即可，即使不平铺
-}
+	.inner{
+		.full;
+		.pr;
+		overflow-x:hidden;
+		overflow-y:auto;
+	}
 
-.c{
-	.size(200px,1800px);
-	.auto(x);
-	background-color:#0f0;
-
-	//方案一：背景图+++
-	//方案二：给c即scroll的子层设置100%宽度
-	//方案三：给scroll本身b-2设置背景
+	.content{
+		//.full(x);
+		background-color:#f00;
+	}
 
 }
 
+.step-5{//.db;
+	.inner{
+		.full;
+		.pr;
+		overflow-x:hidden;
+		overflow-y:auto;
+	}
+
+	.content{
+		.full(x);
+		background-color:#f00;
+	}
+}
+
+.step-6{//.db;
+	.inner{
+		.full;
+		.pr;
+		overflow-x:hidden;
+		overflow-y:auto;
+		//background-color:#f00;
+	}
+
+	.content{
+		.full(x);
+	}
+
+}
+
+.step-7{//.db;
+	.inner{
+		.full;
+		.pr;
+		overflow-x:hidden;
+		overflow-y:auto;
+		background:url('@{url}blank.gif') no-repeat 0 0;
+	}
+
+}
+
+.step-8{//.db;
+
+}

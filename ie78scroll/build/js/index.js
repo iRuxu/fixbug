@@ -1,0 +1,1 @@
+$(function(){function n(){e.hide().eq(c).show(),i.removeClass("on"),i.eq(c).addClass("on")}var i=$("#step li"),o=$("#next"),e=$(".step"),c=0;i.on("click",function(){c=$(this).index(),n()}),o.on("click",function(){7!=c&&(c+=1,n())})});

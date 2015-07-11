@@ -1,0 +1,61 @@
+<div class="step step-7">
+	<div class="text">
+		<h3>Step.7</h3>
+		既然如此，我们再把content去掉精简层级，inner作为包裹层之间包裹每个子块。<br>
+		但是我们的inner可能并不能设置颜色，而可能存在背景的各个block元素并不能均占到100%宽，我们依旧需要通过给inner设置背景来处理这个bug。<br>
+		我们考虑给inner添加一个1px*1px的透明图作为背景（并未设置平铺）,这样不会对设计稿产生额外的影响。<br>
+		好了，现在它依旧正常的滚了起来。与step6比起来，我们不难猜测，scroll触发的并不是实际上光标所在的点要有“实际元素”，也可以理解成非空的background渲染了一层layout，即使这个背景图只有1px的实际空间，但绘制它的background的层却是整个装载容器元素的大小。
+	</div>
+
+	<div class="view">
+		<div class="outer">
+
+			<img class="img" src="http://ww4.sinaimg.cn/large/bcc700eegw1eikbevbsu1j21hc0ip4cf.jpg" alt="">
+			
+			<div class="inner">
+					
+				{{#repeat 5}}
+				<div class="block">
+					内容区域
+				</div>
+				{{/repeat}}
+
+			</div>
+		</div>
+	</div>
+
+	<div class="code">
+	<a href="http://iruxu.com/LessLab/" class="tips">less base on lesslab</a>
+	<textarea>
+		<div class="outer">
+			<img class="img" src="http://ww4.sinaimg.cn/large/bcc700eegw1eikbevbsu1j21hc0ip4cf.jpg" alt="">
+			
+			<div class="inner">
+				<div class="block">内容区域</div>
+				<div class="block">内容区域</div>
+				<div class="block">内容区域</div>
+				<div class="block">内容区域</div>
+			</div>
+		</div>
+		<style>
+			.outer{
+				.pr;.full;
+			}
+			.img{
+				.pa;.lt(0,0);.full;
+				.db;
+			}
+			.inner{
+				.pr;.full;
+				overflow-x:hidden;
+				overflow-y:auto;
+				//添加一个1px*1px的空白背景图，无需平铺
+				background:url('@{url}blank.gif') no-repeat 0 0;
+			}
+			.block{
+				.size(400px,200px);.auto(x);
+			}
+		</style>
+	</textarea>
+	</div>
+</div>
