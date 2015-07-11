@@ -14,6 +14,10 @@ module.exports = {
         path: /(less)$/,
         to: 'css'
     },
+    "__js":"/js/",
+    "__css":"/css/",
+    "__img":"/image/",
+    "__base_url":"/",
     func: function(){
         return [
             Math.random(),
