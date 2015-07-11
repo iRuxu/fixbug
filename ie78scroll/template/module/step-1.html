@@ -1,0 +1,71 @@
+<div class="step-1 step" style="display:block">
+
+	<div class="text">
+		<h3>简介</h3>
+		当我们使用overflow创建一个scroll区域时，在某种情况下，IE78并不能通过鼠标滚轮来滚动非“内容区”。<br>
+		注意，并不是说scroll bar滚动条出现异常，而是指在例如margin产生的空白区等“没有实际内容”的区域，无法“通过鼠标滚轮”来滚动。<br>
+		<h3>Step.1</h3>
+		假设我们要实现下面的效果，首先我们可以选择最简单的结构，将图片设置为outer的背景图，里面直接填充内容子块，设置outer的overflow即可。<br>
+		如果图片不足以满足大屏或全屏，我们可以通过设置background-size:100% 100%;或一侧100%一侧auto来拉伸。亦或者补充background-color一个纯色来补充不拉伸情况下产生的空白区域。
+	</div>
+
+	<div class="view">
+		<div class="outer">
+
+			
+			<div class="block">
+				内容区域
+			</div>
+			
+			<div class="block">
+				内容区域
+			</div>
+			
+			<div class="block">
+				内容区域
+			</div>
+			
+			<div class="block">
+				内容区域
+			</div>
+			
+			<div class="block">
+				内容区域
+			</div>
+			
+
+		</div>
+	</div>
+
+	<div class="code">
+	<a href="http://iruxu.com/LessLab/" class="tips">less base on lesslab</a>
+	<textarea>
+		<!-- 这里是外层 -->
+		<div class="outer">
+
+			<!-- 这里是内容 -->
+			<div class="block"></div>
+			<div class="block"></div>
+			<div class="block"></div>
+			<div class="block"></div>
+
+		</div>
+
+		<style>
+			.outer{
+				.full;
+				background:url('http://ww4.sinaimg.cn/large/bcc700eegw1eikbevbsu1j21hc0ip4cf.jpg') no-repeat 0 0;
+				background-size:100% 100%;
+				overflow-x:hidden;
+				overflow-y:auto;
+			}
+
+			.block{
+				.size(400px,200px);.auto(x);
+			}
+		</style>
+	</textarea>
+	</div>
+
+	
+</div>
