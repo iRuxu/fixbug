@@ -1,0 +1,85 @@
+<div class="step step-3">
+	<div class="text">
+		<h3>Step.3</h3>
+		于是我们试着给内容添加一层包裹.inner，并将overflow的滚动状态迁移至.inner层上，即滚动条来自inner对自己内容的滚动。<br>
+		为了方便中间不同的内容元素宽度全部限定同样，我们可以添加一个。content层来包裹他们。当然此处的content层也可以根据需要来选择是否增删。
+		现在是不是觉得已经完成了我们的预期效果呢？没错，你可以试着滚动一下滚轮或是拖拽滚动条。<br>
+		但是遗憾的是，你需要打开一下IE78（或IE11仿真台）试着使用滚轮滚动却无法滚动。在滚动content区域时间歇发生滚动。
+	</div>
+
+	<div class="view">
+		<div class="outer">
+
+			<img class="img" src="http://ww4.sinaimg.cn/large/bcc700eegw1eikbevbsu1j21hc0ip4cf.jpg" alt="">
+			
+			<div class="inner">
+					
+				<div class="content">
+					
+					<div class="block">
+						内容区域
+					</div>
+					
+					<div class="block">
+						内容区域
+					</div>
+					
+					<div class="block">
+						内容区域
+					</div>
+					
+					<div class="block">
+						内容区域
+					</div>
+					
+					<div class="block">
+						内容区域
+					</div>
+					
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+	<div class="code">
+	<a href="http://iruxu.com/LessLab/" class="tips">less base on lesslab</a>
+	<textarea>
+		<div class="outer">
+			<img class="img" src="http://ww4.sinaimg.cn/large/bcc700eegw1eikbevbsu1j21hc0ip4cf.jpg" alt="">
+			
+			<div class="inner">
+				<div class="content">
+					<div class="block">内容区域</div>
+					<div class="block">内容区域</div>
+					<div class="block">内容区域</div>
+					<div class="block">内容区域</div>
+				</div>
+			</div>
+		</div>
+		<style>
+			.outer{
+				.pr;.full;
+			}
+			.img{
+				.pa;.lt(0,0);.full;
+				.db;
+			}
+			.inner{
+				.pr;.full;
+				overflow-x:hidden;
+				overflow-y:auto;
+			}
+			.content{
+				.size(400px,auto);
+				.auto(x);
+			}
+			.block{
+				//此处可能每个block的宽度并不一致，但不超过content值
+				.h(200px);.auto(x);
+			}
+		</style>
+	</textarea>
+	</div>
+</div>

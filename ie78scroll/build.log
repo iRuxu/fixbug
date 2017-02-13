@@ -1,0 +1,9 @@
+Time: Sat Jul 11 2015 17:57:59 GMT+0800 (中国标准时间)
+ Hostname: OH48Z81SNM0SHXE
+ OS: Windows_NT
+ OS Version: 6.1.7601
+ UUID: 3a513762-6aa3-47bc-ae6a-e21a473a585f
+ Version: 0.8.8
+
+ Options:
+ {"env":"production","workbench":"g:\\iRuxu\\fixbug\\ie78scroll","buildMode":true,"livereload":"http://localhost:35729/livereload.js","version":"0.8.8","language":"en","original":{},"debug":false,"identity":".silky","globalSilkyIdentityDir":"C:\\Users\\Administrator\\.silky","output":"g:\\iRuxu\\fixbug\\ie78scroll\\build"}

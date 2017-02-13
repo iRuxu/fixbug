@@ -1,0 +1,88 @@
+<div class="step step-6">
+	<div class="text">
+		<h3>Step.6</h3>
+		那我们再试着把用于标色的content背景色去掉。—— 坑爹呢这是！<br>
+		推翻前面所有可能的猜测，我们必须换个角度来想想了，或者你可以制作一个更为简单的模型来测试它。<br>
+		之后你会发现，似乎一切在于这个背景色的设置与否！<br>
+		没错，我们猜测到这个bug真正可能的原因，即IE78中scroll的滚轮滚动，需要滚动的是它光标所在位置的最高空间层（z-index）上是否存在可以scroll的元素。（scroll滚动的时候永远是先滚动z-index更靠前的元素）<br>
+		<span class="i">这个“元素”，可以是颜色，但是不能为transparent色值</span>。我们再试着加上另外一个色值在inner层上，你会发现它也会滚动（此时content的宽度可以不必设置为满宽）。
+	</div>
+
+	<div class="view">
+		<div class="outer">
+
+			<img class="img" src="http://ww4.sinaimg.cn/large/bcc700eegw1eikbevbsu1j21hc0ip4cf.jpg" alt="">
+			
+			<div class="inner">
+					
+				<div class="content">
+					
+					<div class="block">
+						内容区域
+					</div>
+					
+					<div class="block">
+						内容区域
+					</div>
+					
+					<div class="block">
+						内容区域
+					</div>
+					
+					<div class="block">
+						内容区域
+					</div>
+					
+					<div class="block">
+						内容区域
+					</div>
+					
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="code">
+	<a href="http://iruxu.com/LessLab/" class="tips">less base on lesslab</a>
+	<textarea>
+		<div class="outer">
+			<img class="img" src="http://ww4.sinaimg.cn/large/bcc700eegw1eikbevbsu1j21hc0ip4cf.jpg" alt="">
+			
+			<div class="inner">
+				<div class="content">
+					<div class="block">内容区域</div>
+					<div class="block">内容区域</div>
+					<div class="block">内容区域</div>
+					<div class="block">内容区域</div>
+				</div>
+			</div>
+		</div>
+		<style>
+			.outer{
+				.pr;.full;
+			}
+			.img{
+				.pa;.lt(0,0);.full;
+				.db;
+			}
+			.inner{
+				.pr;.full;
+				overflow-x:hidden;
+				overflow-y:auto;
+			}
+			.content{
+				//.size(400px,auto);
+				//修订content的宽度为100%
+				.size(100%,auto);
+				.auto(x);
+				//去掉标色
+				//background-color:#f00;
+			}
+			.block{
+				.h(200px);.auto(x);
+			}
+		</style>
+	</textarea>
+	</div>
+</div>
