@@ -6,4 +6,4 @@ Time: Sat Jul 11 2015 17:57:59 GMT+0800 (中国标准时间)
  Version: 0.8.8
 
  Options:
- {"env":"production","workbench":"g:\\iRuxu\\fixbug\\ie78scroll","buildMode":true,"livereload":"http://localhost:35729/livereload.js","version":"0.8.8","language":"en","original":{},"debug":false,"identity":".silky","globalSilkyIdentityDir":"C:\\Users\\Administrator\\.silky","output":"g:\\iRuxu\\fixbug\\ie78scroll\\build"}
+ {"env":"production","workbench":"g:\\iRuxu\\fixbug\\ie78scroll","buildMode":true,"livereload":"https://localhost:35729/livereload.js","version":"0.8.8","language":"en","original":{},"debug":false,"identity":".silky","globalSilkyIdentityDir":"C:\\Users\\Administrator\\.silky","output":"g:\\iRuxu\\fixbug\\ie78scroll\\build"}
